@@ -8,7 +8,7 @@ type InvestorsTableProps = {
     investorSelect: () => void;
 }
 
-function InvestorsTable() {
+function InvestorsTable(props: InvestorsTableProps) {
     const [data, setData] = useState([] as Investor[]);
 
 
@@ -51,11 +51,11 @@ function InvestorsTable() {
                 <tbody>
                     {data.map((investor, index) => (
                         <tr key={index}>
-                            <td>{investor.firm_id}</td>
-                            <td>{investor.firm_name}</td>
-                            <td>{investor.firm_type}</td>
-                            <td>{investor.date_added.toLocaleString()}</td>
-                            <td>{investor.address}</td>
+                            <td onClick={() => props.selectInvestor(investor)}>{investor.firm_id}</td>
+                            <td onClick={() => props.selectInvestor(investor)}>{investor.firm_name}</td>
+                            <td onClick={() => props.selectInvestor(investor)}>{investor.firm_type}</td>
+                            <td onClick={() => props.selectInvestor(investor)}>{investor.date_added.toLocaleString()}</td>
+                            <td onClick={() => props.selectInvestor(investor)}>{investor.address}</td>
                         </tr>
                     ))}
                 </tbody>
