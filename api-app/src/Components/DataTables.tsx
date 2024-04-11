@@ -13,12 +13,17 @@ function DataTables() {
         setInvestorSelected(true);
     }
 
+    function deselectInvestor(): void {
+        setSelectedInvestor({} as Investor);
+        setInvestorSelected(false);
+    }
+
     return (
         <div>
             {investorSelected ? (
                 <div>
                     <Container id="investor-details">
-                        <InvestorDetails investor={selectedInvestor} />
+                        <InvestorDetails investor={selectedInvestor} deselectInvestor={deselectInvestor}/>
                     </Container>
                 </div>
             ) : (
