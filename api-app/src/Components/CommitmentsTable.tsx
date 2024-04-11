@@ -15,7 +15,8 @@ function CommitmentsTable(props: CommitmentsTableProps) {
     const [data, setData] = useState([] as Commitment[]);
 
     async function getCommitments(): Promise<any> {
-        const url = `http://localhost:8000/api/investor/commitment/${props.asset_class}/${props.investor_id}`;
+        const url = 
+        `http://localhost:8000/api/investor/commitment/${props.asset_class}/${props.investor_id}`;
 
         const httpsAgent = new https.Agent({
             maxVersion: 'TLSv1.3',
