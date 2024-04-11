@@ -1,6 +1,6 @@
 import React from 'react';
 // import logo from '../Images/logo.svg';
-import '../CSS/App.css';
+// import '../CSS/App.css';
 import DataTables from './DataTables';
 
 function App() {
