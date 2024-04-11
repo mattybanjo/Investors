@@ -70,7 +70,8 @@ function InvestorDetails(props: InvestorDetailsProps) {
                     <CommitmentsTable
                         investor_id={props.investor.firm_id}
                         asset_class={assetClass}
-                        asset_class_name={assetClassName} />
+                        asset_class_name={assetClassName}
+                    />
                 </Container>
             )}
         </div>
