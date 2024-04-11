@@ -56,8 +56,8 @@ function InvestorDetails(props: InvestorDetailsProps) {
                     </thead>
                     <tr>
                         <td>{props.investor.firm_id}</td>
-                        <td>{props.investor.firm_type}</td>
-                        <td>{props.investor.date_added.toLocaleString()}</td>
+                        <td>{props.investor.firm_type.toUpperCase()}</td>
+                        <td>{props.investor.date_added.toLocaleString().substring(0, 10)}</td>
                         <td>{props.investor.address}</td>
                     </tr>
                     <tbody>
