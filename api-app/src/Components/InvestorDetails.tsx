@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Investor from "../Entity/Investor";
-import CommitmentsTable from "./Commitments";
+import CommitmentsTable from "./CommitmentsTable";
 
 type InvestorDetailsProps = {
     investor: Investor
+    deselectInvestor: () => void;
 }
 
 function InvestorDetails(props: InvestorDetailsProps) {
@@ -31,19 +33,24 @@ function InvestorDetails(props: InvestorDetailsProps) {
         setAssetSelected(true);
     }
 
+    function deselectAll() {
+        setAssetClass("");
+        setAssetClassName("");
+        setAssetSelected(false);
+        props.deselectInvestor();
+    }
+
     return (
         <div className="InvestorDetails">
-            <h2>{props.investor.firm_name.toUpperCase()} Details</h2>
-            <Container id="asset-dropdown">
-                <DropdownButton id="asset-selector" title="Asset Type" menuVariant="dark">
-                    {assetClassesNames.map((key, index) => (
-                        <Dropdown.Item key={index} onClick={() => selectAssetClass(index)}>
-                            {key}
-                        </Dropdown.Item>
-                    ))}
-                </DropdownButton>
-            </Container>
+            <div id="back-to-investors-button">
+                <Button variant="secondary"
+                    onClick={deselectAll}
+                >
+                    Back
+                </Button>
+            </div>
 
+            <h2>{props.investor.firm_name.toUpperCase()} Details</h2>
             <Container id="investor-details-table">
                 <Table>
                     <thead>
@@ -63,6 +70,16 @@ function InvestorDetails(props: InvestorDetailsProps) {
                     <tbody>
                     </tbody>
                 </Table>
+            </Container>
+
+            <Container id="asset-dropdown">
+                <DropdownButton id="asset-selector" title="Asset Type" variant="dark" menuVariant="dark">
+                    {assetClassesNames.map((key, index) => (
+                        <Dropdown.Item key={index} onClick={() => selectAssetClass(index)}>
+                            {key}
+                        </Dropdown.Item>
+                    ))}
+                </DropdownButton>
             </Container>
 
             {assetSelected && (
