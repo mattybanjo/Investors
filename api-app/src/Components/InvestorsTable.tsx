@@ -62,7 +62,7 @@ function InvestorsTable(props: InvestorsTableProps) {
                                      {investor.firm_id}   
                                     </Button>
                                 </td>
-                                <td>{investor.firm_name}</td>
+                                <td>{investor.firm_name.toUpperCase()}</td>
                                 <td>{investor.firm_type.toUpperCase()}</td>
                                 <td>{investor.date_added.toLocaleString().substring(0, 10)}</td>
                                 <td>{investor.address}</td>
