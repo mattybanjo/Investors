@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
+import Table from "react-bootstrap/Table";
 import Investor from "../Entity/Investor";
 import axios from "axios";
 import https from "https";
@@ -39,7 +40,7 @@ function InvestorsTable(props: InvestorsTableProps) {
         <div className="InvestorsTable">
             <h2>Investors</h2>
             <Container id="all-investors-table">
-                <table>
+                <Table>
                     <thead>
                         <tr>
                             <th>Firm ID</th>
@@ -60,7 +61,7 @@ function InvestorsTable(props: InvestorsTableProps) {
                             </tr>
                         ))}
                     </tbody>
-                </table>
+                </Table>
             </Container>
         </div>
     );
