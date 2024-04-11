@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 import Investor from "../Entity/Investor";
 import axios from "axios";
 import https from "https";
@@ -53,11 +54,18 @@ function InvestorsTable(props: InvestorsTableProps) {
                     <tbody>
                         {data.map((investor, index) => (
                             <tr key={index}>
-                                <td onClick={() => props.selectInvestor(investor)}>{investor.firm_id}</td>
-                                <td onClick={() => props.selectInvestor(investor)}>{investor.firm_name}</td>
-                                <td onClick={() => props.selectInvestor(investor)}>{investor.firm_type}</td>
-                                <td onClick={() => props.selectInvestor(investor)}>{investor.date_added.toLocaleString()}</td>
-                                <td onClick={() => props.selectInvestor(investor)}>{investor.address}</td>
+                                <td>
+                                    <Button
+                                        variant="info"
+                                        onClick={() => props.selectInvestor(investor)}
+                                    >
+                                     {investor.firm_id}   
+                                    </Button>
+                                </td>
+                                <td>{investor.firm_name}</td>
+                                <td>{investor.firm_type}</td>
+                                <td>{investor.date_added.toLocaleString()}</td>
+                                <td>{investor.address}</td>
                             </tr>
                         ))}
                     </tbody>
