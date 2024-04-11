@@ -5,7 +5,6 @@ import https from "https";
 
 type InvestorsTableProps = {
     selectInvestor: (investor: Investor) => void;
-    investorSelect: () => void;
 }
 
 function InvestorsTable(props: InvestorsTableProps) {
