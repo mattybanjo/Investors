@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Container from "react-bootstrap/Container";
 import InvestorsTable from "./InvestorsTable";
 import InvestorDetails from "./InvestorDetails";
 import Investor from "../Entity/Investor";
@@ -6,10 +7,6 @@ import Investor from "../Entity/Investor";
 function DataTables() {
     const [investorSelected, setInvestorSelected] = useState(false);
     const [selectedInvestor, setSelectedInvestor] = useState({} as Investor);
-
-    function investorSelect(): void {
-        setInvestorSelected(true);
-    }
 
     function selectInvestor(investor: Investor): void {
         setSelectedInvestor(investor);
@@ -20,10 +17,14 @@ function DataTables() {
         <div>
             {investorSelected ? (
                 <div>
-                    <InvestorDetails investor={selectedInvestor} />
+                    <Container id="investor-details">
+                        <InvestorDetails investor={selectedInvestor} />
+                    </Container>
                 </div>
             ) : (
-                <InvestorsTable selectInvestor={selectInvestor} investorSelect={investorSelect} />
+                <Container id="investors-table">
+                    <InvestorsTable selectInvestor={selectInvestor} />
+                </Container>
             )}
 
         </div>
